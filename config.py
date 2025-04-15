@@ -1,4 +1,8 @@
 import pickle
+import gymnasium as gym
+import highway_env
+import time
+
 
 config_dict = {
     "observation": {
@@ -45,5 +49,25 @@ config_dict = {
     "disable_collision_checks": True,
 }
 
+
+
+# Save the configuration 
 with open("config.pkl", "wb") as f:
     pickle.dump(config_dict, f)
+
+if (0):
+    # Create and configure the environment
+    env = gym.make("highway-fast-v0", render_mode="rgb_array")
+    env.unwrapped.configure(config_dict)
+
+    # Initialize the environment
+    obs, info = env.reset()
+
+    # Run 100 steps with random actions and render
+    for _ in range(100):
+        action = env.action_space.sample()
+        obs, reward, done, truncated, info = env.step(action)
+        env.render()
+        time.sleep(0.1)
+
+    env.close()
