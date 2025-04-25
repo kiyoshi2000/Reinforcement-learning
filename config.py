@@ -23,10 +23,10 @@ config_dict = {
         "type": "DiscreteMetaAction",
     },
     "lanes_count": 4,
-    "vehicles_count": 15,
+    "vehicles_count": 10,
     "duration": 60,  # [s]
-    "initial_spacing": 0,
-    "collision_reward": -1,  # The reward received when colliding with a vehicle.
+    "initial_spacing": 2,
+    "collision_reward": -5,  # The reward received when colliding with a vehicle.
     "right_lane_reward": 0.5,  # The reward received when driving on the right-most lanes, linearly mapped to
     # zero for other lanes.
     "high_speed_reward": 0.1,  # The reward received when driving at full speed, linearly mapped to zero for
@@ -37,7 +37,7 @@ config_dict = {
         30,
     ],  # [m/s] The reward for high speed is mapped linearly from this range to [0, HighwayEnv.HIGH_SPEED_REWARD].
     "simulation_frequency": 5,  # [Hz]
-    "policy_frequency": 1,  # [Hz]
+    "policy_frequency": 5,  # [Hz]
     "other_vehicles_type": "highway_env.vehicle.behavior.IDMVehicle",
     "screen_width": 600,  # [px]
     "screen_height": 150,  # [px]
@@ -46,7 +46,7 @@ config_dict = {
     "show_trajectories": True,
     "render_agent": True,
     "offscreen_rendering": False,
-    "disable_collision_checks": True,
+    "disable_collision_checks": False,
 }
 
 
